@@ -29,7 +29,7 @@ Copy
 
 Edit
 
-git clone https://github.com/your-username/weather-app.git
+git clone https://github.com/riaanHarwood/Weather-App.git
 
 Open the index.html file in your browser.
 Enter a city name to get real-time weather updates.
