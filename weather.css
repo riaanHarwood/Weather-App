@@ -119,13 +119,12 @@ body::before{
 
 .weather-summary-img{
     width: 120px;
-    height: 120px;
+    height: 100px;
 }
 
 .weather-summary-info{
     text-align: end;
 }
-
 
 .weather-conditions-container{
     display: flex;
@@ -134,12 +133,13 @@ body::before{
 
 .condition-item{
     display: flex;
-    align-items: center;
-    gap: 6
+    align-items: right;
+    gap: 6;
+    flex-direction: column;
 }
 
-.condition-item{
-
+.condition-info {
+    margin-top: 5px;
 }
 
 
