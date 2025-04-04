@@ -21,7 +21,8 @@ CSS - Styling and responsiveness
 
 JavaScript - Fetching and displaying weather data
 
-OpenWeatherMap API - Retrieves weather data
+OpenWeatherMap API - Retrieves weather data when searching by city/country 
+https://openweathermap.org/
 
 📦 Installation & Usage
 Clone the repository:
