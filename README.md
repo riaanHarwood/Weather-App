@@ -1,3 +1,5 @@
+NOTE: Still currently working on this project. Due for completiong 14/05/2025
+
 🌦 Weather App
 
 A simple and interactive weather app that provides real-time weather updates for any city worldwide. Built using HTML, CSS, and JavaScript, this app fetches weather data from the OpenWeatherMap API and displays key weather details in a user-friendly interface.
