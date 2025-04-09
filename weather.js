@@ -33,7 +33,6 @@ cityInput.addEventListener('keydown', (event) => {
     }
 });
 
-
 async function getFetchData(endPoint, city) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/${endPoint}?q=${city}&appid=${apiKey}&units=metric`;
     const response = await fetch(apiUrl);
@@ -41,9 +40,25 @@ async function getFetchData(endPoint, city) {
 }
 
 
-
 function getWeatherIcon(id){
-    console.log(id)
+    if (id >= 200 && id <= 232) return 'thunderstorm.png'; // Thunderstorm
+    if (id >= 300 && id <= 321) return 'drizzle.png';       // Drizzle
+    if (id >= 500 && id <= 531) return 'rain.png';          // Rain
+    if (id >= 600 && id <= 622) return 'snow.png';          // Snow
+    if (id >= 701 && id <= 781) return 'mist.png';          // Atmosphere (mist, smoke, etc.)
+    if (id === 800) return 'clear.png';                     // Clear
+    if (id >= 801 && id <= 804) return 'cloud.png';         // Clouds
+
+    return 'cloud.png'; // Default fallback
+}
+
+
+function getCurrentDate() {
+    const currentDate = new Date()
+    const options = {
+        
+    }
+    console.log(currentDate)
 }
 
 // add to this function --> .cod///
@@ -57,18 +72,22 @@ async function updateWeatherInfo(city) {
     console.log(weatherData)
 
     const {
-        name: country, 
+        name: cityName,
+        sys: { country },
         main: {temp, humidity}, 
         weather: [{ id, main, }],
         wind: { speed }
     } = weatherData
 
-    countryTxt.textContent = country
+    countryTxt.textContent = `${cityName}, ${country}`
     tempTxt.textContent = Math.round(temp) + " °C"
     conditionTxt.textContent = main
     humidityValueTxt.textContent = humidity + "%"
     windValueTxt.textContent = speed + " M/s"
-    weatherSummaryImg.src = `./assets/weather/${getWeatherIcon(id)}`
+    weatherSummaryImg.src = `assets/weather/${getWeatherIcon(id)}`
+    currentDateTxt.textContent = getCurrentDate() 
+
+    currentDateTxt.textContent = getCurrentDate() 
 
     showDisplaySection(weatherInfoSection)
 

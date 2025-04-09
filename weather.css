@@ -46,6 +46,7 @@ body::before{
 /* Utility */
 .regular-txt{
     font-weight: 400;
+
 }
 /* End Utility */
 
@@ -87,6 +88,25 @@ body::before{
     display: flex;
     cursor: pointer;
 }
+
+.search-city {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.search-city-img {
+    max-width: 100%;
+    width: 80%;
+    height: auto;
+}
+
+
+
+
+
 /* End Input Container */ 
 
 
