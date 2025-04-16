@@ -92,7 +92,6 @@ async function updateWeatherInfo(city) {
     weatherSummaryImg.src = `assets/weather/${getWeatherIcon(id)}`
 
     await updateForecastsInfo(city) 
-
     showDisplaySection(weatherInfoSection)
 
 }
@@ -136,13 +135,12 @@ function updateForecastItems(weatherData){
         <h5 class="forecast-item-temp"> ${Math.round(temp)} &deg;C </h5>
     </div>
     `;  
-
     forecastItemsContainer.insertAdjacentHTML('beforeend', forecastItem)
 }
+
 
 function showDisplaySection(section) {
     [weatherInfoSection, searchCitySection, notFoundSection]
         .forEach(section => section.style.display='none')
-
     section.style.display='flex'
 }
