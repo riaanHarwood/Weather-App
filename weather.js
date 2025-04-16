@@ -39,13 +39,12 @@ async function getFetchData(endPoint, city) {
     return response.json();
 }
 
-
-function getWeatherIcon(id){
+function getWeatherIcon(id) {
     if (id >= 200 && id <= 232) return 'thunderstorm.png'; // Thunderstorm
     if (id >= 300 && id <= 321) return 'drizzle.png';       // Drizzle
     if (id >= 500 && id <= 531) return 'rain.png';          // Rain
     if (id >= 600 && id <= 622) return 'snow.png';          // Snow
-    if (id >= 701 && id <= 781) return 'mist.png';          // Atmosphere (mist, smoke, etc.)
+    if (id >= 701 && id <= 781) return 'mist.png';          // Atmosphere
     if (id === 800) return 'clear.png';                     // Clear
     if (id >= 801 && id <= 804) return 'cloud.png';         // Clouds
 
@@ -56,10 +55,14 @@ function getWeatherIcon(id){
 function getCurrentDate() {
     const currentDate = new Date()
     const options = {
-        
-    }
-    console.log(currentDate)
+        weekday: 'short',
+        day: '2-digit',
+        month: 'short',
+    };
+    return currentDate.toLocaleDateString('en-GB', options)
 }
+
+
 
 // add to this function --> .cod///
 async function updateWeatherInfo(city) {
@@ -69,29 +72,41 @@ async function updateWeatherInfo(city) {
         showDisplaySection(notFoundSection)
         return 
     }
-    console.log(weatherData)
 
     const {
         name: cityName,
         sys: { country },
         main: {temp, humidity}, 
-        weather: [{ id, main, }],
+        weather: [{ id, description }],
         wind: { speed }
     } = weatherData
 
     countryTxt.textContent = `${cityName}, ${country}`
     tempTxt.textContent = Math.round(temp) + " °C"
-    conditionTxt.textContent = main
+    conditionTxt.textContent = description.charAt(0).toUpperCase() + description.slice(1)
     humidityValueTxt.textContent = humidity + "%"
     windValueTxt.textContent = speed + " M/s"
+    
+    currentDateTxt.textContent = getCurrentDate() 
     weatherSummaryImg.src = `assets/weather/${getWeatherIcon(id)}`
-    currentDateTxt.textContent = getCurrentDate() 
 
-    currentDateTxt.textContent = getCurrentDate() 
+    await updateForecastsInfo(city) 
 
     showDisplaySection(weatherInfoSection)
 
 }
+
+
+async function updateForecastsInfo(city){
+    const forecastsData = await getFetchData('forecast', city) 
+    const timeTaken = '12:00:00'
+    const todayDate = new Date().toISOString().split('T')[0]
+    forecastsData.list.forEach(forecastWeather => {
+        if (forecastWeather.dt_txt.includes())
+        console.log(forecastWeather)
+    })
+}
+
 
 function showDisplaySection(section) {
     [weatherInfoSection, searchCitySection, notFoundSection]
