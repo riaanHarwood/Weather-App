@@ -17,6 +17,49 @@ const forecastItemsContainer = document.querySelector('.forecast-items-container
 const apiKey = '6d4f5538fdd126f22b975ca85bf6d255'
 
 
+function updateClock() {
+    const clock = document.getElementById("clock");
+    const now = new Date();
+
+    const options = {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+    };
+
+    clock.textContent = now.toLocaleTimeString([], options);
+}
+
+// Update immediately, then every second
+updateClock();
+setInterval(updateClock, 1000);
+
+
+
+
+
+
+
+// Greeting based on time
+function setGreeting() {
+    const greetingText = document.getElementById("greeting-text");
+    const hour = new Date().getHours();
+
+    if (hour < 12) {
+        greetingText.textContent = "Good Morning 🌅";
+    } else if (hour < 18) {
+        greetingText.textContent = "Good Afternoon ☀️";
+    } else {
+        greetingText.textContent = "Good Evening 🌙";
+    }
+}
+
+// Run when page loads
+document.addEventListener("DOMContentLoaded", setGreeting);
+
+
+
+
 searchBtn.addEventListener('click', () => {
     if (cityInput.value.trim() != ''){
         updateWeatherInfo(cityInput.value)

@@ -11,7 +11,21 @@
 </head>
 <body>
 
+    <div id="clock"></div>
+    <aside class="welcome-panel">
+        <h1>Hello, Welcome to the Weather App</h1>
+        <p>
+            To get started, search for a city using the search bard on the right. The app will display current weather conditions, forecasts, and other relevant details. 
+        </p>
+    </aside>
+
     <main class="main-container">
+        <!-- Greeting Section -->
+        <div class="greeting-container">
+            <h1 id="greeting-text">Good Morning</h1>
+            <p class="greeting-sub">Check today’s weather forecast below 🌤️</p>
+        </div>
+
         <header class="input-container">
             <input class="city-input" placeholder="Search City" type="text">
             <button class="search-btn">
@@ -142,11 +156,11 @@
         </section>
 
         <section class="search-city section-message">
-            <img src="./assets/search-city.png" class="search-city-img"/>
+            <img src="./assets/search-city.svg" class="search-city-img"/>
             <div>
                 <h1> Search City </h1>
                 <h4 class="regular-txt">
-                    Find out the weather conditions of this city
+                    Find out today's weather conditions
                 </h4>
             </div>
         </section>
