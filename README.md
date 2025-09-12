@@ -1,4 +1,3 @@
-NOTE: Still currently working on this project. Due for completiong 14/05/2025
 
 🌦 Weather App
 
